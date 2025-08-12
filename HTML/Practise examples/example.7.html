@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/apply-leave" method="post">
+  <label>Employee ID: <input type="text" name="employeeId" /></label>
+  <label>Leave Type:
+    <select name="leaveType">
+      <option value="sick">Sick Leave</option>
+      <option value="casual">Casual Leave</option>
+      <option value="earned">Earned Leave</option>
+    </select>
+  </label>
+  <label>From Date: <input type="date" name="fromDate" /></label>
+  <label>To Date: <input type="date" name="toDate" /></label>
+  <label>Reason: <textarea name="reason"></textarea></label>
+  <button type="submit">Apply</button>
+</form>
+
+</body>
+</html>
