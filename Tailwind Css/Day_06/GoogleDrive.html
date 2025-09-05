@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Google Drive Clone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between px-4 py-2 bg-white shadow-sm">
+    <div class="flex items-center gap-2">
+        <img src="https://icons.iconarchive.com/icons/marcus-roberto/google-play/512/Google-Drive-icon.png" class="w-14" alt="">
+      <h1 class="text-xl font-medium">Drive</h1>
+    </div>
+    <div class="flex-1 max-w-2xl mx-8">
+      <div class="flex items-center bg-gray-100 rounded-lg px-3 py-2">
+        <span class="material-icons text-gray-500">search</span>
+        <input type="text" placeholder="Search in Drive" class="bg-transparent flex-1 px-2 outline-none text-sm">
+        <span class="material-icons text-gray-500">tune</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="material-icons text-gray-600">help_outline</span>
+      <span class="material-icons text-gray-600">settings</span>
+      <span class="material-icons text-gray-600">apps</span>
+      <div class="bg-orange-500 text-white rounded-full w-9 h-9 flex items-center justify-center font-medium">P</div>
+    </div>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-60 bg-white border-r p-4 flex flex-col">
+<button class="flex items-center gap-2 bg-white border rounded-full px-5 py-2 shadow hover:shadow-md text-gray-700 font-medium">
+  <span class="material-icons text-gray-600">add</span>
+  New
+</button>
+
+      <nav class="mt-6 space-y-2 text-gray-700">
+        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 bg-blue-50 text-blue-600">
+          <span class="material-icons">home</span> Home
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+          <span class="material-icons">cloud</span> My Drive
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+          <span class="material-icons">computer</span> Computers
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+          <span class="material-icons">people</span> Shared with me
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+          <span class="material-icons">schedule</span> Recent
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+          <span class="material-icons">star</span> Starred
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+          <span class="material-icons">delete</span> Trash
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+          <span class="material-icons">storage</span> Storage
+        </a>
+      </nav>
+
+      <div class="mt-auto">
+        <div class="flex justify-between text-xs text-gray-500 mb-1">
+          <span>398.5 MB of 15 GB used</span>
+        </div>
+        <div class="w-full h-2 bg-gray-200 rounded-full">
+          <div class="h-2 bg-blue-500 rounded-full" style="width: 3%;"></div>
+        </div>
+        <button class="mt-3 text-blue-600 text-sm hover:underline">Get more storage</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <h2 class="text-3xl text-gray-700 mb-3">Welcome to Drive</h2>
+
+      <div>
+        <div class="text-xl">
+            <i class="fa fa-chevron-down text-m"></i>Suggested folders
+        </div>
+        
+        <div class="bg-white p-4 rounded-lg shadow-sm border w-60 hover:bg-gray-200">
+          <div class="flex items-center gap-2">
+            <span class="material-icons text-black-500">folder</span>
+            <div>
+              <p class="text-sm font-medium">Classroom</p>
+              <p class="text-xs text-gray-500">In My Drive</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <div class="text-xl">
+            <i class="fa fa-chevron-down text-m"></i>Suggested files
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border">
+          <div class="grid grid-cols-4 text-xl font-sans text-black border-b px-4 py-2">
+            <span>Name</span>
+            <span>Reason suggested</span>
+            <span>Owner</span>
+            <span>Location</span>
+            <span class="col-span-2"></span>
+          </div>
+          <!-- File rows -->
+          <div class="divide-y text-xl font-sans">
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">description</span> afm-xwha-ebv</span>
+              <span class="m">You opened • Aug 26, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">person</span> L</span>
+              <span>Shared with me</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-blue-500">language</span> HTML</span>
+              <span>You opened • Aug 15, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">person</span> P</span>
+              <span>Shared with me</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-green-500">table_chart</span> Untitled spreadsheet</span>
+              <span>You modified • Jul 9, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-gray-500">person</span>me</span>
+              <span>My Drive</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">description</span> printf</span>
+              <span>You created • Jun 18, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-gray-500">person</span>me</span>
+              <span>My Drive</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-blue-500">description</span> afm-xwha-ebv</span>
+              <span>You opened • Aug 18, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">person</span> L</span>
+              <span>Shared with me</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-green-500">table_chart</span>Arithmetic operators</span>
+              <span>You modified • Jun 21, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-gray-500">person</span>me</span>
+              <span>My Drive</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-green-500">table_chart</span>Input user</span>
+              <span>You modified • Jun 18, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-gray-500">person</span>me</span>
+              <span>My Drive</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">image</span>IMG 20250167_141726.jpj</span>
+              <span>You created • Jun 18, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-gray-500">person</span>me</span>
+              <span>My Drive</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">image</span>Screenshot 2025-07-29 125708.png</span>
+              <span>You opened • Jul 30, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons">person</span>Sumit thakur</span>
+              <span>Shared with me</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">image</span>Square pattern assignment</span>
+              <span>You created • Jul 17, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">person</span>L</span>
+              <span>Shared with me</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">image</span>Screenshot 2025-05-26 125708.png</span>
+              <span>You opened • Jul 30, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-red-500">person</span>L</span>
+              <span>Shared with me</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-blue-500">description</span>Printf assignment</span>
+              <span>You opened • Jun 18, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-gray-500">person</span>me</span>
+              <span>Shared with me</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-blue-500">description</span>Printf assignment</span>
+              <span>You opened • Jun 18, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-gray-500">person</span>me</span>
+              <span>Shared with me</span>
+            </div>
+            <div class="grid grid-cols-4 items-center px-4 py-2 hover:bg-gray-50">
+              <span class="flex items-center gap-2"><span class="material-icons text-blue-500">description</span>Printf assignment</span>
+              <span>You opened • Jun 18, 2025</span>
+              <span class="flex items-center gap-2"><span class="material-icons text-gray-500">person</span>me</span>
+              <span>Shared with me</span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+<script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
