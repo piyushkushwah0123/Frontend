@@ -1,176 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Basic SEO Meta Tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="VS Code UI Clone using Tailwind CSS" />
-    <meta
-      name="keywords"
-      content="VS Code, HTML Editor, Tailwind CSS, Clone UI"
-    />
-    <meta name="author" content="Your Name" />
-    <title>VS Code Clone - Tailwind CSS</title>
 
-    <!-- Font Awesome Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-
-    <!-- Base CSS Reset -->
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-    </style>
-  </head>
-  <body class="font-sans">
-    <!-- Outer Flex Container -->
-    <div class="flex flex-col h-screen">
-      <!-- Main Editor Area -->
-      <div class="bg-slate-800 flex flex-grow overflow-hidden">
-        <!-- Left Sidebar -->
-        <div
-          class="w-[5%] border-r border-gray-600 flex flex-col justify-between bg-slate-900"
-        >
-          <!-- Top Navigation Icons -->
-          <ul>
-            <li class="text-white p-2 ml-3 text-2xl">
-              <i class="fa-regular fa-file"></i>
-            </li>
-            <li class="text-white p-2 ml-3 text-2xl">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </li>
-            <li class="text-white p-2 ml-3 text-2xl">
-              <i class="fa-solid fa-code-branch"></i>
-            </li>
-            <li class="text-white p-2 ml-3 text-2xl">
-              <i class="fa-solid fa-play"></i>
-            </li>
-            <li class="text-white p-2 ml-3 text-2xl">
-              <i class="fa-solid fa-box"></i>
-            </li>
-            <li class="text-white p-2 ml-3 text-2xl">
-              <i class="fa-solid fa-pen-to-square"></i>
-            </li>
-          </ul>
-
-          <!-- Bottom Settings Icons -->
-          <ul>
-            <li class="text-white p-2 ml-3 text-2xl">
-              <i class="fa-solid fa-user"></i>
-            </li>
-            <li class="text-white p-2 ml-3 text-2xl">
-              <i class="fa-solid fa-gear"></i>
-            </li>
-          </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="h-screen bg-slate-800 text-white flex">
+        <div class="bg-slate-900 border-r border-gray-600 w-4/100 pl-2 pt-3 pr-5 flex flex-col justify-between cursor-pointer">
+            <ul class="text-2xl">
+                <li class="mb-8"><i class="fa-solid fa-folder-open"></i></li>
+                <li class="mb-8"><i class="fa-solid fa-magnifying-glass"></i></li>
+                <li class="mb-8"><i class="fa-solid fa-code-merge"></i></li>
+                <li class="mb-8"><i class="fa-brands fa-amazon"></i></li>
+            </ul>
+            <ul class="text-2xl">
+                <li class="mb-8"><i class="fa fa-user"></i></li>
+                <li class="mb-8"><i class="fa fa-gear"></i></li>
+            </ul>
         </div>
+        <div class="bg-slate-800 border-r border-gray-600 p-1 w-20/100">
+            <div class="flex justify-between w-full">
+                <div class="w-1/2">
+                    <h6 class="pl-2 p-3 text-green-400 text-xs">
+                        EXPLOROR
+                    </h6>
+                </div>
+                <div class="w-1/2 text-right p-2">
+                    <i class="fa fa-ellipsis-h pr-2"></i>
+                </div>
+            </div>
 
-        <!-- Explorer Panel -->
-        <div
-          class="w-[20%] border-r border-gray-600 bg-slate-800 overflow-y-auto"
-        >
-          <div class="flex justify-between text-white">
-            <h3 class="text-green-300 text-xs ml-4 mt-4">EXPLORER</h3>
-            <i class="fa-solid fa-ellipsis mr-4 mt-4"></i>
-          </div>
 
-          <!-- Open Editors Section -->
-          <div class="text-white p-3 text-xs font-bold bg-slate-900 mt-3">
-            > OPEN EDITORS
-          </div>
-          <hr class="border-gray-600" />
-
-          <!-- File List -->
-          <div
-            class="hover:bg-slate-700 text-white p-3 text-xs flex items-center"
-          >
-            <i class="fa-solid fa-code text-red-500 mr-2"></i> index1.html
-          </div>
-          <div
-            class="hover:bg-slate-700 text-white p-3 text-xs flex items-center"
-          >
-            <i class="fa-solid fa-code text-red-500 mr-2"></i> index2.html
-          </div>
-          <div
-            class="hover:bg-slate-700 text-white p-3 text-xs flex items-center"
-          >
-            <i class="fa-solid fa-code text-red-500 mr-2"></i> index3.html
-          </div>
+            <div class="flex justify-between bg-slate-900 pt-2 p-2">
+                <div class="flex justify-between">
+                    <div>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div>
+                        <p>Day_01</p>
+                    </div>
+                </div>
+                <div class="flex opacity-0 hover:opacity-100 cursor-pointer pt-1 gap-2">
+                    <i class="fa fa-file"></i>
+                    <i class="fa fa-folder-open"></i>
+                    <i class="fa-solid fa-code-commit"></i>
+                    <i class="fa-solid fa-rotate-left"></i>
+                </div>
+            </div>
+            <div class="pt-2 flex-1 flex flex-col bg-slate-800">
+                <div class="hover:bg-slate-700 p-2 text-sm cursor-pointer">
+                    <i class="fa-brands fa-html5 text-yellow-400"></i>index.1.html
+                </div>
+                <div class="hover:bg-slate-700 p-2 text-sm cursor-pointer">
+                    <i class="fa-brands fa-html5 text-yellow-400"></i>index.2.html
+                </div>
+                <div class="hover:bg-slate-700 p-2 text-sm cursor-pointer">
+                    <i class="fa-brands fa-html5 text-yellow-400"></i>index.3.html
+                </div>
+            </div>
         </div>
-
-        <!-- Main Code Editor Panel -->
-        <div class="flex-1 flex flex-col bg-slate-800 overflow-hidden">
-          <!-- Tabs -->
+        <div class="bg-slate-800 w-76/100">
+            <div class="flex-1 flex flex-col bg-slate-800 overflow-hidden">
           <div class="flex">
-            <div class="text-white bg-slate-900 p-3 text-xs flex items-center">
-              <i class="fa-solid fa-code text-red-500 mr-2"></i> index1.html
+            <div class="text-white bg-slate-900 p-4 text-xs flex items-center cursor-pointer">
+              <i class="fa-solid fa-code text-red-400 mr-2"></i> index.1.html
             </div>
-            <div class="text-white bg-slate-900 p-3 text-xs flex items-center">
-              <i class="fa-solid fa-code text-red-500 mr-2"></i> index2.html
+            <div class="text-white bg-slate-900 p-4 text-xs flex items-center cursor-pointer">
+              <i class="fa-solid fa-code text-red-400 mr-2"></i> index.2.html
             </div>
-            <div class="text-white bg-slate-900 p-3 text-xs flex items-center">
-              <i class="fa-solid fa-code text-red-500 mr-2"></i> index3.html
+            <div class="text-white bg-slate-900 p-4 text-xs flex items-center cursor-pointer">
+              <i class="fa-solid fa-code text-red-400 mr-2"></i> index.3.html
             </div>
           </div>
-
-          <!-- Code Editor Content -->
-          <div
-            class="flex-1 bg-slate-800 text-white p-4 font-mono text-sm overflow-auto"
-          >
-            <h2 class="text-green-400 font-semibold mb-2">
-              🧾 Static Preview:
-            </h2>
-            <pre class="whitespace-pre-wrap"><code>
-                &lt;!DOCTYPE html&gt;
+          <div>
+            <h2 class="text-green-400 font-semibold mb-2 pt-6 p-4">🧾 Static Preview:</h2>
+          </div>
+          <pre>
+            &lt;!DOCTYPE html&gt;
                 &lt;html lang="en"&gt;
                 &lt;head&gt;
                     &lt;meta charset="UTF-8"&gt;
                     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-                    &lt;title&gt;Demo&lt;/title&gt;
+                    &lt;title&gt;VS code clone&lt;/title&gt;
                 &lt;/head&gt;
                 &lt;body&gt;
-                    &lt;h1&gt;Hello, VS Code Clone!&lt;/h1&gt;
-                    &lt;p&gt;This is a demo code snippet.&lt;/p&gt;
+                    &lt;h1&gt;Hello World!, My name is Piyush&lt;/h1&gt;
+                    &lt;p&gt;This is a Tailwind CSS code.&lt;/p&gt;
                 &lt;/body&gt;
                 &lt;/html&gt;
-                    </code></pre>
-
-            <h2 class="text-blue-400 font-semibold mt-6 mb-2">
-              ✏️ Editable HTML:
-            </h2>
-            <textarea
-              class="w-full h-60 bg-slate-900 text-white p-3 text-sm rounded-lg resize-none outline-none border border-gray-600"
-              spellcheck="false"
-            >
+          </pre>
+          <h3 class="p-4 text-red-400">✏️ Editable HTML:</h3>
+          <textarea class="w-full h-60 bg-slate-900 text-white p-3 rounded-lg resize-none outline-none border border-gray-600">
             <!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8" />
-                <title>My Project</title>
+                <title>VS editor clone</title>
             </head>
             <body>
                 <h1>Editable Section</h1>
                 <p>Type here to simulate real editor behavior.</p>
             </body>
             </html>
-                    </textarea
-            >
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom Status Bar -->
-      <div class="bg-slate-900 h-6 flex items-center">
-        <div class="bg-pink-300 w-14 h-full flex items-center justify-center">
-          <i class="fa-brands fa-windows text-white"></i>
-        </div>
-        <div class="text-white ml-2 text-xs">VS Code Clone Active</div>
-      </div>
+          </textarea>
     </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+</body>
 
-    <!-- Optional Tailwind CDN if not using PostCSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-  </body>
 </html>
