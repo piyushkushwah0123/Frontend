@@ -8,6 +8,7 @@
 <body>
     <form action="/apply-leave" method="post">
   <label>Employee ID: <input type="text" name="employeeId" /></label>
+  <br><br>
   <label>Leave Type:
     <select name="leaveType">
       <option value="sick">Sick Leave</option>
@@ -15,9 +16,13 @@
       <option value="earned">Earned Leave</option>
     </select>
   </label>
+  <br><br>
   <label>From Date: <input type="date" name="fromDate" /></label>
+  <br><br>
   <label>To Date: <input type="date" name="toDate" /></label>
+  <br><br>
   <label>Reason: <textarea name="reason"></textarea></label>
+  <br><br>
   <button type="submit">Apply</button>
 </form>
 
