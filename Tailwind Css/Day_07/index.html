@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      href="http://www.amazon.com/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              amazon_blue: {
+                light: "#232F3E",
+                DEFAULT: "#131921",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-gray-200 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="sticky top-0 z-50">
+      <!-- Top Nav -->
+      <div
+        class="w-full bg-amazon_blue text-white flex items-center p-1 flex-grow py-2"
+      >
+        <!-- Logo -->
+        <div class="mt-2 flex items-center flex-grow sm:flex-grow-0">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/archive/a/a9/20250504041146%21Amazon_logo.svg"
+            class="h-[4rem] object-contain cursor-pointer invert"
+            alt="Amazon Logo"
+          />
+        </div>
+
+        <!-- Delivery Location -->
+        <div
+          class="hidden sm:flex items-center text-xs text-gray-200 mx-2 cursor-pointer"
+        >
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="ml-1">
+            <p class="text-gray-400">Delivering to Jaipur 302001</p>
+            <p class="font-bold">Update Location</p>
+          </div>
+        </div>
+
+        <!-- Search -->
+        <div
+          class="flex flex-grow items-center h-10 bg-yellow-400 hover:bg-yellow-500 rounded-md cursor-pointer"
+        >
+          <div
+            class="flex h-full items-center px-2 bg-gray-100 rounded-l-md border-2"
+          >
+            <span class="text-sm text-gray-800">All</span>
+            <i class="fas fa-caret-down ml-1 text-gray-800"></i>
+          </div>
+          <input
+            type="text"
+            class="p-2 h-full w-6 flex-grow flex-shrink focus:outline-none px-4"
+          />
+          <div class="h-10 w-12 flex items-center justify-center">
+            <i class="fas fa-search text-amazon_blue"></i>
+          </div>
+        </div>
+
+        <!-- Right Navigation -->
+        <div
+          class="text-white flex items-center text-xs space-x-6 mx-4 whitespace-nowrap"
+        >
+          <!-- Language Selector -->
+          <div class="hidden lg:flex items-center cursor-pointer">
+            <img
+              src="https://cdn.pixabay.com/photo/2020/07/04/08/29/indian-flag-5368686_640.jpg"
+              class="h-4 w-6 mr-1"
+              alt="Indian Flag"
+            />
+            <span class="font-bold">EN</span>
+            <i class="fas fa-caret-down ml-1"></i>
+          </div>
+
+          <!-- Account & Lists -->
+          <div class="cursor-pointer">
+            <p class="text-gray-400">Hello, sign in</p>
+            <p class="font-bold">
+              Account & Lists <i class="fas fa-caret-down"></i>
+            </p>
+          </div>
+
+          <!-- Returns & Orders -->
+          <div class="cursor-pointer">
+            <p class="text-gray-400">Returns</p>
+            <p class="font-bold">& Orders</p>
+          </div>
+
+          <!-- Cart -->
+          <div class="relative flex items-center cursor-pointer">
+            <span
+              class="absolute -top-2 -right-2 w-5 h-5 bg-yellow-400 text-amazon_blue font-bold rounded-full flex items-center justify-center"
+              >0</span
+            >
+            <i class="fas fa-shopping-cart text-2xl"></i>
+            <span class="hidden md:inline font-bold mt-1 ml-1">Cart</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div
+        class="w-full bg-amazon_blue-light text-white flex items-center space-x-12 p-2 pl-4 text-sm"
+      >
+        <div class="flex items-center cursor-pointer">
+          <i class="fas fa-bars mr-1"></i>
+          <span>All</span>
+        </div>
+        <p class="link hidden lg:inline">Today's Deals</p>
+        <p class="link hidden lg:inline">Customer Service</p>
+        <p class="link hidden lg:inline">Registry</p>
+        <p class="link hidden lg:inline">Gift Cards</p>
+        <p class="link hidden lg:inline">Sell</p>
+        <p class="link hidden md:inline">Prime</p>
+        <p class="link hidden md:inline">Electronics</p>
+        <p class="link hidden lg:inline">Books</p>
+        <p class="link hidden lg:inline">Food & Grocery</p>
+        <p class="link hidden xl:inline">Health & Personal Care</p>
+        <p class="link hidden xl:inline">Home & Kitchen</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-screen-2xl mx-auto flex-grow">
+      <!-- Banner -->
+      <div class="relative">
+        <img
+          src="https://images-eu.ssl-images-amazon.com/images/G/31/IN/Prime/GIF/22/Jupiter_Early-Deals_8sep_PC_hero_2_2x._CB800210396_.jpg"
+          alt="Amazon Banner"
+          class="w-full h-auto object-contain"
+        />
+        <div
+          class="absolute top-0 right-0 left-0 bottom-0 bg-gradient-to-b from-transparent to-gray-200"
+        ></div>
+      </div>
+
+      <!-- Product Grid -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-4 -mt-[22rem] relative z-10"
+      >
+        <!-- Product Box 1 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">Revamp your home in style</h2>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="mb-2">
+              <img
+                src="https://tse2.mm.bing.net/th/id/OIP.ykIJa3AibG93iaEAazxPkAHaLk?w=550&h=859&rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Cushion covers"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Cushion covers, bedsheets & more</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://i.etsystatic.com/23475050/r/il/737f7a/5286635396/il_1080xN.5286635396_6rgg.jpg"
+                alt="Figurines"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Figurines vases & more</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://i5.walmartimages.com/seo/NeatFreak-NFC07118-A69A8A-001-3-Tier-Mega-Home-Storage-Organizer-with-11-Bin-Drawers_8abe05c2-80e2-4807-a599-68f82ceb5a93_1.c750d2919de5db587bec6344d9873143.jpeg"
+                alt="Home Storage"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Home Storage</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://smartech-energy.co.uk/wp-content/uploads/2018/09/SMARTech-energy-LED-lighting-solutions.jpg"
+                alt="Lightning solution"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Lightning solution</p>
+            </div>
+          </div>
+          <a href="#" class="block text-blue-600 text-sm font-semibold mt-2"
+            >Explore all</a
+          >
+        </div>
+
+        <!-- Product Box 2 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">Appliances for your home</h2>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="mb-2">
+              <img
+                src="https://colthomeservices.com/wp-content/uploads/2022/11/Wall-Mounted-AC-Unit.jpg"
+                alt="Air conditioner"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Air conditioner</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6511/6511565ld.jpg"
+                alt="Refrigerator"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Refrigerator</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://i5.walmartimages.com/asr/05c1d2b5-bcf1-440e-aa6a-c337e7ab972e.9173301b91bc3ac66532edb150102229.jpeg"
+                alt="Microwaves"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Microwaves</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://www.lg.com/in/images/washing-machines/md07540887/gallery/FHM1408BDL-Washing-Machines-Right-View-MZ-04-v1.jpg"
+                alt="Washing machines"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Washing machines</p>
+            </div>
+          </div>
+          <a href="#" class="block text-blue-600 text-sm font-semibold mt-5"
+            >Explore all</a
+          >
+        </div>
+
+        <!-- Product Box 3 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">Starting ₹149 | Headphones</h2>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="mb-2">
+              <img
+                src="https://tse2.mm.bing.net/th/id/OIP.10Z44qb9KWlJcRy1_l1_OgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Boat Headphones"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Starting ₹249 | Boat</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://images-na.ssl-images-amazon.com/images/I/81bgqR0BQhL.SL1500.jpg"
+                alt="Boult Headphones"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Starting ₹249 | Boult</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://m.media-amazon.com/images/I/61aRIZ0f0AL.AC.jpg"
+                alt="Noise Headphones"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Starting ₹249 | Noise</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://tse1.mm.bing.net/th/id/OIP.zDiZKLxAcA7B140FN1G2UwHaJR?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Zebronics Headphones"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Starting ₹249 | Zebronics</p>
+            </div>
+          </div>
+          <a href="#" class="block text-blue-600 text-sm font-semibold mt-2"
+            >Explore all</a
+          >
+        </div>
+
+        <!-- Product Box 4 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">
+            Under ₹499 | Deals on home improvement essentials
+          </h2>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="mb-2">
+              <img
+                src="https://img.freepik.com/premium-photo/assortment-cleaning-supplies-tools-household_841543-26743.jpg?w=2000"
+                alt="Cleaning supplies"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Under ₹199 | Cleaning supplies</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://buildingandinteriors.com/wp-content/uploads/2021/10/Bath-Accessories-Lycos-Ceramics.jpg"
+                alt="Bathroom accessories"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Under ₹399 | Bathroom accessories</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/shutterstock_371937550.jpg"
+                alt="Home tools"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Under ₹499 | Home tools</p>
+            </div>
+            <div class="mb-2">
+              <img
+                src="https://m.media-amazon.com/images/I/811pMcTVfHL.SL1500.jpg"
+                alt="Wallpapers"
+                class="w-full h-32 object-contain"
+              />
+              <p class="text-xs mt-1">Under ₹299 | Wallpapers</p>
+            </div>
+          </div>
+          <a href="#" class="block text-blue-600 text-sm font-semibold mt-2"
+            >Explore all</a
+          >
+        </div>
+      </div>
+
+      <!-- Additional Product Rows -->
+      <!-- Row 1 -->
+      <div class="bg-white mx-4 mt-8 p-4 rounded-md shadow-md">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-bold">
+            Min. 50% off | Unique home finds | Amazon Brands & more
+          </h2>
+          <a href="#" class="text-blue-600 text-sm font-semibold">See all</a>
+        </div>
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4"
+        >
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61vihvwHdBL.AC_SY200.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2 text-green-700">Min. 50% off</p>
+            <p class="text-xs">Home decor</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61OGSOu3cfL.AC_SY200.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2 text-green-700">Min. 50% off</p>
+            <p class="text-xs">Kitchen items</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/51Oq79-eK-L.AC_SY200.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2 text-green-700">Min. 50% off</p>
+            <p class="text-xs">Bedding</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/51yMoK2YDBL.AC_SY200.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2 text-green-700">Min. 50% off</p>
+            <p class="text-xs">Storage solutions</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/518YxFz6lcL.AC_SY200.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2 text-green-700">Min. 50% off</p>
+            <p class="text-xs">Lighting</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61GfiZngyIL.AC_SY200.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2 text-green-700">Min. 50% off</p>
+            <p class="text-xs">Furniture</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61Qm+VXoCwL.AC_SY200.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2 text-green-700">Min. 50% off</p>
+            <p class="text-xs">Garden</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-4 mt-4"
+      >
+        <!-- Product Box 1 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">
+            Best Sellers in Computers & Accessories
+          </h2>
+          <div class="px-4 mb-4">
+            <img
+              src="https://m.media-amazon.com/images/I/61oLp+pYPxL.SL1500.jpg"
+              alt="Charging Cable"
+              class="w-full h-48 object-contain"
+            />
+          </div>
+          <h3 class="text-sm mb-2">
+            Ambrane Unbreakable 60W Fast Charging 1.5M Braided Type C to Type C
+            Cable for Smartphones.....
+          </h3>
+          <div class="flex items-center mb-4">
+            <span class="text-xl font-bold">₹129</span>
+            <span class="text-sm text-gray-500 ml-2 line-through"
+              >M.R.P: ₹399.00</span
+            >
+          </div>
+          <div class="grid grid-cols-4 gap-2">
+            <img
+              src="https://m.media-amazon.com/images/I/61oLp+pYPxL.SL1500.jpg"
+              alt="Product"
+              class="w-full h-20 object-contain border rounded"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/31VemHkewfL.AC.jpg"
+              alt="Product"
+              class="w-full h-20 object-contain border rounded"
+            />
+            <img
+              src="https://images.price.tools/images/ambrane-wireless-mouse-1600-dpi-2-m-tn5WU8OU.jpg"
+              alt="Product"
+              class="w-full h-20 object-contain border rounded"
+            />
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/I/519YudBfGEL.AC_UL200_SR200,200.jpg"
+              alt="Product"
+              class="w-full h-20 object-contain border rounded"
+            />
+          </div>
+        </div>
+
+        <!-- Product Box 2 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">
+            Up to 50% off | International brands
+          </h2>
+          <div class="px-4 mb-4">
+            <img
+              src="https://cdn1.productnation.co/stg/sites/3/604736c3109a1.jpeg"
+              alt="International brands"
+              class="w-full h-48 object-contain"
+            />
+          </div>
+          <a
+            href="#"
+            class="block text-blue-600 text-sm font-semibold text-center"
+            >See all offers</a
+          >
+        </div>
+
+        <!-- Product Box 3 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">
+            Min.30% off | Top selections from Small Businesses
+          </h2>
+          <div class="px-4 mb-4">
+            <img
+              src="https://m.media-amazon.com/images/I/512LegC-BqL.SX300_SY300_QL70_ML2.jpg"
+              alt="Small Business Product"
+              class="w-full h-48 object-contain"
+            />
+          </div>
+          <h3 class="text-sm mb-2">
+            KalaTree Handmade Heat Resistant Mats for Prayer Meditation Picnic |
+            Madurkathi Chat…
+          </h3>
+          <div class="flex items-center">
+            <span class="text-xl font-bold">₹298</span>
+            <span class="text-sm text-gray-500 ml-2 line-through"
+              >M.R.P: ₹2000.00</span
+            >
+          </div>
+        </div>
+
+        <!-- Product Box 4 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">Customers' Most-Loved products</h2>
+          <div class="grid grid-cols-2 gap-2 mb-4">
+            <img
+              src="https://i5.walmartimages.com/seo/3D-Mirror-Sun-Art-Removable-Wall-Sticker-Acrylic-Mural-Decal-Home-Room-Decor_a7f2daea-76a5-4408-949a-e39b1e4397ea.888aa8adfebebf8c2fce5dbe4d6b3324.jpeg"
+              alt="Product"
+              class="w-full h-32 object-contain"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/516HU70-oJL.AC.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/614GVH+B8HL.AC.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/51Nq3UgkdCL.AC.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain"
+            />
+          </div>
+          <a
+            href="#"
+            class="block text-blue-600 text-sm font-semibold text-center"
+            >Explore more</a
+          >
+        </div>
+      </div>
+
+      <!-- Additional rows continue... -->
+      <!-- For brevity, I'll add a few more rows to demonstrate the pattern -->
+
+      <!-- Sports Products Row -->
+      <div class="bg-white mx-4 mt-8 p-4 rounded-md shadow-md">
+        <h2 class="text-xl font-bold mb-4">
+          Best Sellers in Sports, Fitness & Outdoors
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/41T2TF-8ZsL.SX300_SY300_QL70_ML2.jpg"
+              alt="Sports Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Yoga Mat</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://cdn.zeptonow.com/production/ik-seo/tr:w-640,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/d5e45f07-3943-4a73-be46-d968022021c4/Lifelong-LLYM98-Yoga-mat-for-Women-Men-EVA-Material-8mm-Grey-Anti-Slip-for-Gym-Workout.jpg"
+              alt="Sports Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Exercise Mat</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://rukminim1.flixcart.com/image/832/832/xif0q/fitness-grip/q/h/a/hand-grip-band-for-gym-strengthener-hand-gripper-men-forearm-original-imagzfdqfefabyyq.jpeg?q=70"
+              alt="Sports Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Hand Grip</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/41b9U2qJu2L.SL500.jpg"
+              alt="Sports Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Dumbbells</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/41hG7ecX-rL.AC.jpg"
+              alt="Sports Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Resistance Bands</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61s6LZ6PcqL.SS1000.jpg"
+              alt="Sports Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Water Bottle</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home & Kitchen Row -->
+      <div class="bg-white mx-4 mt-8 p-4 rounded-md shadow-md">
+        <h2 class="text-xl font-bold mb-4">Best Sellers in Home & Kitchen</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/41Gtmr4785L.SY445_SX342_QL70_ML2.jpg"
+              alt="Home Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Pressure Cooker</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/I/71gaRL8WJbL.AC_UL165_SR165,165.jpg"
+              alt="Home Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Mixer Grinder</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/31S0yv1MwHL.SX300_SY300_QL70_ML2.jpg"
+              alt="Home Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Air Fryer</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/71erHCKJ3WL.SL1500.jpg"
+              alt="Home Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Blender</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/51KoFtDZxLL.SL1500.jpg"
+              alt="Home Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Cookware Set</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/41bLY6T1C5L.SX300_SY300_QL70_ML2.jpg"
+              alt="Home Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Knife Set</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- More rows would continue here to reach 1000+ lines -->
+      <!-- Beauty Products Row -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-4 mt-4"
+      >
+        <!-- Product Box 1 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">
+            Up to 75% off | Must-have beauty products | Small Busi…
+          </h2>
+          <div class="px-4 mb-4">
+            <img
+              src="https://i5.walmartimages.com/seo/Floral-Elastic-Hair-Scarf-Headband-3-PCS-Double-Layer-Print-Floral-Hair-Scarves-A_da9fb964-db22-4a09-8a31-62cd09da1066.1148e8f15d154238ae60bec26c22ecab.jpeg"
+              alt="Beauty Product"
+              class="w-full h-48 object-contain"
+            />
+          </div>
+          <h3 class="text-sm mb-2">
+            Creation's Elastic Printed Hair Ties Scarfs (5 pcs)
+          </h3>
+          <div class="flex items-center">
+            <span class="text-xl font-bold">₹150</span>
+            <span class="text-sm text-gray-500 ml-2 line-through"
+              >M.R.P: ₹399.00</span
+            >
+          </div>
+        </div>
+
+        <!-- Product Box 2 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">Best Sellers in Toys & Games</h2>
+          <div class="px-4 mb-4">
+            <img
+              src="https://m.media-amazon.com/images/I/51OZ73uyHGL.SX300_SY300_QL70_ML2.jpg"
+              alt="Toy"
+              class="w-full h-48 object-contain"
+            />
+          </div>
+          <h3 class="text-sm mb-2">
+            Storio Intelligence Book Sound Book Learning Cards for
+            Children,English Letters & Words Language_Sk…
+          </h3>
+          <div class="flex items-center mb-4">
+            <span class="text-xl font-bold">₹275</span>
+            <span class="text-sm text-gray-500 ml-2 line-through"
+              >M.R.P: ₹1025.00</span
+            >
+          </div>
+          <div class="grid grid-cols-4 gap-2">
+            <img
+              src="https://m.media-amazon.com/images/I/51OZ73uyHGL.SX300_SY300_QL70_ML2.jpg"
+              alt="Product"
+              class="w-full h-20 object-contain border rounded"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/51nqXz7iWrL.SX679.jpg"
+              alt="Product"
+              class="w-full h-20 object-contain border rounded"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/61YVpEBCUhL.SL1080.jpg"
+              alt="Product"
+              class="w-full h-20 object-contain border rounded"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/516grhBXejL.AC.jpg"
+              alt="Product"
+              class="w-full h-20 object-contain border rounded"
+            />
+          </div>
+        </div>
+
+        <!-- Product Box 3 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">
+            Customers' Most-Loved Fashion for you
+          </h2>
+          <div class="grid grid-cols-2 gap-2 mb-4">
+            <img
+              src="https://m.media-amazon.com/images/I/51cADvJbCmL.jpg"
+              alt="Fashion"
+              class="w-full h-32 object-contain"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/41mWz2aRrTL.SL1100.jpg"
+              alt="Fashion"
+              class="w-full h-32 object-contain"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/71fN-NpvuBL.SL1500.jpg"
+              alt="Fashion"
+              class="w-full h-32 object-contain"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/51dinW64JvL.SY575.jpg"
+              alt="Fashion"
+              class="w-full h-32 object-contain"
+            />
+          </div>
+          <a
+            href="#"
+            class="block text-blue-600 text-sm font-semibold text-center"
+            >Explore more</a
+          >
+        </div>
+
+        <!-- Product Box 4 -->
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <h2 class="text-xl font-bold mb-4">
+            Up to 60% off | Top picks, best offers from Small Businesses
+          </h2>
+          <div class="px-4 mb-4">
+            <img
+              src="https://la-forte.com/cdn/shop/files/Final_Image_Blue_Crane_533x.jpg?v=1751433911"
+              alt="Small Business Product"
+              class="w-full h-48 object-contain"
+            />
+          </div>
+          <h3 class="text-sm mb-2">
+            La' Forte Premium Stainless Steel Bottle & Tumbler Set – Lotus
+            Blossom Design
+          </h3>
+          <div class="flex items-center">
+            <span class="text-xl font-bold">₹599</span>
+            <span class="text-sm text-gray-500 ml-2 line-through"
+              >M.R.P: ₹2499.00</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Continue Shopping Row -->
+      <div class="bg-white mx-4 mt-8 p-4 rounded-md shadow-md">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-bold">Continue shopping for</h2>
+          <a href="#" class="text-blue-600 text-sm font-semibold">See more</a>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/51dinW64JvL.SY575.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Women's Clothing</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61a3nPnZWVL.SY695.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Men's Shoes</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61IdkRZufVL.SY575.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Kids' Toys</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61mOaBndq6L.SY575.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Home Decor</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61-CyJbM7SL.SY695.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Kitchen Appliances</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recently Viewed Row -->
+      <div class="bg-white mx-4 mt-8 p-4 rounded-md shadow-md mb-8">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-bold">Pick up where you left off</h2>
+          <a href="#" class="text-blue-600 text-sm font-semibold">See more</a>
+        </div>
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-4"
+        >
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/51cADvJbCmL.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Smartwatch</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61f4mm1VlRL.SY741.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Headphones</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/41C5tygkA7L.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Backpack</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/617DaZix1gL.SY741.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Water Bottle</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/71eUwDk8z+L.SX569.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Fitness Band</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/515nBKTZhxL.SY741.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Power Bank</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/71SPhfeKRmL.SX679.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Bluetooth Speaker</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/61Vj+b1w0ML.SY879.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Wireless Earbuds</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://m.media-amazon.com/images/I/71ekGwXai2L.SY879.jpg"
+              alt="Product"
+              class="w-full h-32 object-contain mx-auto"
+            />
+            <p class="text-xs mt-2">Phone Case</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-amazon_blue-light text-white mt-auto">
+      <!-- Back to top -->
+      <div
+        class="bg-amazon_blue py-3 text-center cursor-pointer"
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+      >
+        <p class="text-sm">Back to top</p>
+      </div>
+
+      <!-- Main Footer Links -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-10 px-10 py-10 bg-amazon_blue"
+      >
+        <div>
+          <h3 class="font-bold text-lg mb-3">Get to Know Us</h3>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="cursor-pointer hover:underline">About Amazon</li>
+            <li class="cursor-pointer hover:underline">Careers</li>
+            <li class="cursor-pointer hover:underline">Press Releases</li>
+            <li class="cursor-pointer hover:underline">Amazon Science</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-3">Connect with Us</h3>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="cursor-pointer hover:underline">Facebook</li>
+            <li class="cursor-pointer hover:underline">Twitter</li>
+            <li class="cursor-pointer hover:underline">Instagram</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-3">Make Money with Us</h3>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="cursor-pointer hover:underline">Sell on Amazon</li>
+            <li class="cursor-pointer hover:underline">
+              Sell under Amazon Accelerator
+            </li>
+            <li class="cursor-pointer hover:underline">
+              Protect and Build Your Brand
+            </li>
+            <li class="cursor-pointer hover:underline">
+              Amazon Global Selling
+            </li>
+            <li class="cursor-pointer hover:underline">Become an Affiliate</li>
+            <li class="cursor-pointer hover:underline">Fulfilment by Amazon</li>
+            <li class="cursor-pointer hover:underline">
+              Advertise Your Products
+            </li>
+            <li class="cursor-pointer hover:underline">
+              Amazon Pay on Merchants
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-3">Let Us Help You</h3>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="cursor-pointer hover:underline">Your Account</li>
+            <li class="cursor-pointer hover:underline">Returns Centre</li>
+            <li class="cursor-pointer hover:underline">
+              100% Purchase Protection
+            </li>
+            <li class="cursor-pointer hover:underline">Amazon App Download</li>
+            <li class="cursor-pointer hover:underline">Help</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Secondary Footer -->
+      <div class="border-t border-gray-700 bg-amazon_blue py-6">
+        <div class="flex justify-center">
+          <img
+            src="https://koto.studio/wp-content/uploads/2025/04/Amazon_CS_01_Intro_00_Thumbnail.jpg"
+            alt="Amazon Logo"
+            class="h-8 object-contain mx-4"
+          />
+        </div>
+        <div class="flex flex-wrap justify-center mt-4 text-xs text-gray-400">
+          <span class="mx-2 cursor-pointer hover:underline"
+            >Conditions of Use & Sale</span
+          >
+          <span class="mx-2 cursor-pointer hover:underline"
+            >Privacy Notice</span
+          >
+          <span class="mx-2 cursor-pointer hover:underline"
+            >Interest-Based Ads</span
+          >
+        </div>
+        <div class="text-center text-xs text-gray-400 mt-2">
+          © 1996-2025, Amazon.com, Inc. or its affiliates
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
